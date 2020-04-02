@@ -7,11 +7,24 @@ const DEFAULT_HERO = {
   powers: ['Intelligence', 'Money'],
 }
 
-describe('Star Wars API Tests', () => {
+describe('Heroes API Tests', () => {
+  before(async () => {
+    await database.create(DEFAULT_HERO)
+  })
+
   it('should query a hero using files', async () => {
     const expected = DEFAULT_HERO
 
-    const [result] = await database.list(1)
+    const [result] = await database.list(DEFAULT_HERO.id)
+    deepEqual(result, expected)
+  })
+
+  it('should add a new hero to database', async () => {
+    const expected = DEFAULT_HERO
+
+    await database.create(DEFAULT_HERO)
+    const [result] = await database.list(DEFAULT_HERO.id)
+
     deepEqual(result, expected)
   })
 })
