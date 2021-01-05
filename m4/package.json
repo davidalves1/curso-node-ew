@@ -8,7 +8,7 @@
   "author": "davidalves1 <contato@davidalves1.com> (https://davidalves1.com)",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "mocha": "^7.1.1"
